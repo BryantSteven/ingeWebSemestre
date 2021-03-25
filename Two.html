@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Punto 2</title>
+</head>
+
+<body>
+  <div class="question" style="width: 65%;">
+    <h3>¿Cuál de los siguientes Doctype es el que utilizarías para un documento HTML5?</h3>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-1">
+        <input type="radio" name="question1" data-is-correct="true"/>
+        &lt;!doctype html&gt;</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-2">
+        <input type="radio" name="question1"/>
+        &lt;!doctype html5&gt;</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-3">
+        <input type="radio" name="question1"/>
+        &lt;!DOCTYPE html PUBLIC "-//W3C//DTD HTML 5.0 Transitional//EN"&gt;</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-4">
+        <input type="radio" name="question1"/>
+        &lt;!html&gt;</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+  </div>
+  <br>
+  <div class="question" style="width: 65%;">
+    <h3>Selecciona el elemento en el cuál incluirías los links de la navegación primaria de un sitio:</h3>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-1">
+        <input type="radio" name="question2"/>
+        &lt;section&gt;</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-2">
+        <input type="radio" name="question2"/>
+        &lt;menu&gt;</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+    <div class="block" style="padding: 10px;">
+      <label for="option-3">
+        <input type="radio" name="question2"/>
+        &lt;header&gt;</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-4">
+        <input type="radio" name="question2" data-is-correct="true"/>
+        &lt;nav&gt;</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+  </div>
+  <br>
+  <div class="question" style="width: 65%;">
+    <h3>Selecciona el elemento inválido</h3>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-1">
+        <input type="radio" name="question3" data-is-correct="true"/>
+        &lt;camera&gt;</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-2">
+        <input type="radio" name="question3"/>
+        &lt;div&gt;</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-3">
+        <input type="radio" name="question3"/>
+        &lt;article&gt;</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-4">
+        <input type="radio" name="question3"/>
+        &lt;strong&gt;</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+  </div>
+  <br>
+  <div class="question" style="width: 65%;">
+    <h3>Selecciona el tipo de input válido</h3>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-1">
+        <input type="radio" name="question4"/>
+        type="boolean"</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-2">
+        <input type="radio" name="question4" data-is-correct="true"/>
+        type="textarea"</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-3">
+        <input type="radio" name="question4"/>
+        type="alphanumeric"</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+
+    <div class="block" style="padding: 10px;">
+      <label for="option-4">
+        <input type="radio" name="question4"/>
+        type="range"</label>
+      <span class="feedback"></span>
+    </div>
+    <hr />
+  </div>
+  <br>
+  <button type="button" onclick="validateAnswers()"
+    style="width: 130px; border-radius: 3px; background-color: lightblue; font-weight: 700;">Verificar
+    respuestas</button>
+
+  <h2 id="correct-answers" style="visibility: hidden;"></h2>
+
+  <script>
+    let correctAnswers = 0;
+    function validateAnswers() {
+      let questions = document.querySelectorAll('.question');
+
+      questions.forEach(question => {
+        let answers = question.querySelectorAll('.block');
+        let isCorrect = false;
+        answers.forEach(answer => {
+          let input = answer.getElementsByTagName('input');
+          let feedback = answer.getElementsByClassName('feedback');
+          if (input[0].getAttribute('data-is-correct') === 'true' && input[0].checked) {
+            answer.style.border = '3px solid limegreen';
+            feedback[0].style.color = 'limegreen';
+            feedback[0].innerHTML = 'Correcto!';
+            correctAnswers++;
+            isCorrect = true;
+          }
+        });
+        if (!isCorrect) {
+          question.style.border = '3px solid red';
+        }
+      });
+
+      let answersMessage = document.getElementById('correct-answers');
+      answersMessage.style.visibility = 'visible';
+      answersMessage.innerHTML = `Respondiste correctamente a ${correctAnswers} preguntas`;
+    }
+  </script>
+
+</body>
+
+</html>

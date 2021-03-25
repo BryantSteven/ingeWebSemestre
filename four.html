@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Punto 4</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>punto 4</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <form action="#" class="col s12" onsubmit="event.preventDefault(); navigate()">
+                <ul class="collection with-header">
+                    <li class="collection-header">
+                        <h4>Elije un buscador</h4>
+                    </li>
+                    <li class="collection-item">
+                        <label>
+                            <input name="searchEngines" type="radio" value="http://bing.com" />
+                            <span><img src="img/bing.png" alt="Bing" width="150"></span>
+                        </label>
+                    </li>
+                    <li class="collection-item">
+                        <label>
+                            <input name="searchEngines" type="radio" value="https://duckduckgo.com/" />
+                            <span><img src="img/duckduckgo.png" alt="DuckDuckGo" width="150"></span>
+                        </label>
+                    </li>
+                    <li class="collection-item">
+                        <label>
+                            <input name="searchEngines" type="radio" value="https://google.com/" />
+                            <span><img src="img/google.png" alt="Google" width="150"></span>
+                        </label>
+                    </li>
+                    <li class="collection-item">
+                        <label>
+                            <input name="searchEngines" type="radio" value="https://search.yahoo.com" />
+                            <span><img src="img/yahoo.png" alt="Yahoo" width="150"></span>
+                        </label>
+                    </li>
+                </ul>
+                <div class="right-align">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">
+                        Ir <i class="material-icons right">send</i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        function navigate() {
+            var searchEngines = document.getElementsByName('searchEngines');
+            for (var i = 0, length = searchEngines.length; i < length; i++) {
+                if (searchEngines[i].checked) {
+                    window.open(searchEngines[i].value, '_blank')
+                    break;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
